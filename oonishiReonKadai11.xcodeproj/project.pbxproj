@@ -18,6 +18,8 @@
 		AB1CB87E26A51DDA00995AC8 /* PrefectureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CB87D26A51DDA00995AC8 /* PrefectureViewModel.swift */; };
 		AB1CB88026A51DE100995AC8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CB87F26A51DE100995AC8 /* ViewModel.swift */; };
 		AB1CB88826A51E1D00995AC8 /* Prefecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1CB88726A51E1D00995AC8 /* Prefecture.storyboard */; };
+		AB1CB88B26A521FC00995AC8 /* PrefectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CB88926A521FC00995AC8 /* PrefectureTableViewCell.swift */; };
+		AB1CB88C26A521FC00995AC8 /* PrefectureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1CB88A26A521FC00995AC8 /* PrefectureTableViewCell.xib */; };
 		ED891D4D0AE781D0E289B4A2 /* Pods_oonishiReonKadai11.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFEC253F4A2A1B08C7F10674 /* Pods_oonishiReonKadai11.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		AB1CB87D26A51DDA00995AC8 /* PrefectureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureViewModel.swift; sourceTree = "<group>"; };
 		AB1CB87F26A51DE100995AC8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AB1CB88726A51E1D00995AC8 /* Prefecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Prefecture.storyboard; sourceTree = "<group>"; };
+		AB1CB88926A521FC00995AC8 /* PrefectureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureTableViewCell.swift; sourceTree = "<group>"; };
+		AB1CB88A26A521FC00995AC8 /* PrefectureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrefectureTableViewCell.xib; sourceTree = "<group>"; };
 		CFEC253F4A2A1B08C7F10674 /* Pods_oonishiReonKadai11.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_oonishiReonKadai11.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +137,8 @@
 		AB1CB88526A51DFC00995AC8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				AB1CB88926A521FC00995AC8 /* PrefectureTableViewCell.swift */,
+				AB1CB88A26A521FC00995AC8 /* PrefectureTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 			files = (
 				AB1CB87226A51CB000995AC8 /* LaunchScreen.storyboard in Resources */,
 				AB1CB88826A51E1D00995AC8 /* Prefecture.storyboard in Resources */,
+				AB1CB88C26A521FC00995AC8 /* PrefectureTableViewCell.xib in Resources */,
 				AB1CB86F26A51CB000995AC8 /* Assets.xcassets in Resources */,
 				AB1CB86D26A51CB000995AC8 /* Main.storyboard in Resources */,
 			);
@@ -269,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB1CB88B26A521FC00995AC8 /* PrefectureTableViewCell.swift in Sources */,
 				AB1CB87A26A51DB900995AC8 /* Prefecture.swift in Sources */,
 				AB1CB86A26A51CB000995AC8 /* ViewController.swift in Sources */,
 				AB1CB86626A51CB000995AC8 /* AppDelegate.swift in Sources */,
