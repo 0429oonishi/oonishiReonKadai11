@@ -6,14 +6,42 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
+    @IBOutlet private weak var prefectureNameLabel: UILabel!
+    @IBOutlet private weak var prefectureInputButton: UIButton!
+    
+    private let disposeBag = DisposeBag()
+    private let viewModel: ViewModelType = ViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupBindings()
+        
     }
-
-
+    
+    private func setupBindings() {
+        prefectureInputButton.rx.tap
+            .subscribe(onNext: viewModel.inputs.prefectureInputButtonDidTapped)
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.event
+            .drive(onNext: { [weak self] event in
+                switch event {
+                    case .screenTransition:
+                        let prefectureVC = PrefectureViewController.instantiate()
+                        prefectureVC.onTapEvent = { [weak self] name in
+                            self?.prefectureNameLabel.text = name
+                        }
+                        self?.present(prefectureVC, animated: true, completion: nil)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
 }
 
