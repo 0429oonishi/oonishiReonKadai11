@@ -44,6 +44,10 @@
                             <constraint firstItem="9TX-JP-YLw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="xPN-dX-yRC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="prefectureInputButton" destination="ygZ-T2-9ry" id="heJ-Tf-pFd"/>
+                        <outlet property="prefectureNameLabel" destination="9TX-JP-YLw" id="Bd7-qV-tHj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
