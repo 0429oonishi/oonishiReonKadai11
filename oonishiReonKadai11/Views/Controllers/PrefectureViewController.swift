@@ -16,10 +16,7 @@ final class PrefectureViewController: UIViewController {
     
     private let viewModel: PrefectureViewModelType = PrefectureViewModel()
     private let disposeBag = DisposeBag()
-    private var prefectureNames: [String] {
-        return viewModel.outputs.prefectureNames
-    }
-    var onTapEvent: ((String) -> Void)?
+    var didSelect: ((String) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +42,10 @@ final class PrefectureViewController: UIViewController {
         viewModel.outputs.event
             .drive(onNext: { [weak self] event in
                 switch event {
-                    case .cellDidTapped(let name):
-                        self?.onTapEvent?(name)
-                        self?.dismiss(animated: true, completion: nil)
-                    case .cancelButtonDidTapped:
+                    case .dismiss(let name):
+                        if let name = name {
+                            self?.didSelect?(name)
+                        }
                         self?.dismiss(animated: true, completion: nil)
                 }
             })
@@ -70,12 +67,12 @@ extension PrefectureViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        60
     }
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        let prefectureName = prefectureNames[indexPath.row]
+        let prefectureName = viewModel.outputs.prefectureNames[indexPath.row]
         viewModel.inputs.cellDidTapppd(name: prefectureName)
     }
     
@@ -85,7 +82,7 @@ extension PrefectureViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return prefectureNames.count
+        viewModel.outputs.prefectureNames.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -93,7 +90,7 @@ extension PrefectureViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: PrefectureTableViewCell.identifier
         ) as! PrefectureTableViewCell
-        let prefectureName = prefectureNames[indexPath.row]
+        let prefectureName = viewModel.outputs.prefectureNames[indexPath.row]
         cell.configure(prefectureName: prefectureName)
         return cell
     }
