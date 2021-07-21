@@ -34,7 +34,7 @@ final class ViewController: UIViewController {
                 switch event {
                     case .screenTransition:
                         let prefectureVC = PrefectureViewController.instantiate()
-                        prefectureVC.onTapEvent = { [weak self] name in
+                        prefectureVC.didSelect = { [weak self] name in
                             self?.prefectureNameLabel.text = name
                         }
                         self?.present(prefectureVC, animated: true, completion: nil)
