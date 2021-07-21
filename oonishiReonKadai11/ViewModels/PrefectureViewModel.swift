@@ -27,23 +27,23 @@ protocol PrefectureViewModelType {
 final class PrefectureViewModel: PrefectureViewModelInput,
                                  PrefectureViewModelOutput {
     
+    // アウトプットなので、ViewControllerに「実行して欲しいこと」をベースに命名
     enum Event {
-        case cellDidTapped(name: String)
-        case cancelButtonDidTapped
+        case dismiss(name: String?)
     }
     var event: Driver<Event> {
         eventRelay.asDriver(onErrorDriveWith: .empty())
     }
     private let eventRelay = PublishRelay<Event>()
     
-    let prefectureNames = Prefecture.name
+    let prefectureNames = Prefecture.names
     
     func cellDidTapppd(name: String) {
-        eventRelay.accept(.cellDidTapped(name: name))
+        eventRelay.accept(.dismiss(name: name))
     }
     
     func cancelButtonDidTapped() {
-        eventRelay.accept(.cancelButtonDidTapped)
+        eventRelay.accept(.dismiss(name: nil))
     }
     
 }
